@@ -23,188 +23,6 @@ export interface Post {
   content: string
   tags: string[]
   readingTime: number
-  translations?: Record<string, string>
-}
-
-// Enhanced map of equivalent post slugs across languages
-const postTranslations = {
-  // English posts
-  "how-to-pray-like-jesus": {
-    pt: "como-orar-como-jesus",
-    es: "como-orar-como-jesus",
-    de: "wie-man-wie-jesus-betet",
-    fr: "comment-prier-comme-jesus",
-    it: "come-pregare-come-gesu",
-    fil: "paano-manalangin-tulad-ni-hesus",
-  },
-  "importance-of-bible-reading": {
-    pt: "importancia-da-leitura-biblica",
-    es: "importancia-de-la-lectura-biblica",
-    de: "bedeutung-des-bibellesens",
-    fr: "importance-de-la-lecture-biblique",
-    it: "importanza-della-lettura-biblica",
-    fil: "kahalagahan-ng-pagbabasa-ng-bibliya",
-  },
-  "finding-peace-in-chaos": {
-    pt: "encontrando-paz-em-um-mundo-caotico",
-    es: "encontrando-paz-en-un-mundo-caotico",
-    de: "frieden-finden-in-einer-chaotischen-welt",
-    fr: "trouver-la-paix-dans-un-monde-chaotique",
-    it: "trovare-pace-in-un-mondo-caotico",
-    fil: "paghahanap-ng-kapayapaan-sa-isang-magulo-na-mundo",
-  },
-  // Portuguese posts
-  "como-orar-como-jesus": {
-    en: "how-to-pray-like-jesus",
-    es: "como-orar-como-jesus",
-    de: "wie-man-wie-jesus-betet",
-    fr: "comment-prier-comme-jesus",
-    it: "come-pregare-come-gesu",
-    fil: "paano-manalangin-tulad-ni-hesus",
-  },
-  "importancia-da-leitura-biblica": {
-    en: "importance-of-bible-reading",
-    es: "importancia-de-la-lectura-biblica",
-    de: "bedeutung-des-bibellesens",
-    fr: "importance-de-la-lecture-biblique",
-    it: "importanza-della-lettura-biblica",
-    fil: "kahalagahan-ng-pagbabasa-ng-bibliya",
-  },
-  "encontrando-paz-em-um-mundo-caotico": {
-    en: "finding-peace-in-chaos",
-    es: "encontrando-paz-en-un-mundo-caotico",
-    de: "frieden-finden-in-einer-chaotischen-welt",
-    fr: "trouver-la-paix-dans-un-monde-chaotique",
-    it: "trovare-pace-in-un-mondo-caotico",
-    fil: "paghahanap-ng-kapayapaan-sa-isang-magulo-na-mundo",
-  },
-  // Spanish posts
-  "como-orar-como-jesus": {
-    en: "how-to-pray-like-jesus",
-    pt: "como-orar-como-jesus",
-    de: "wie-man-wie-jesus-betet",
-    fr: "comment-prier-comme-jesus",
-    it: "come-pregare-come-gesu",
-    fil: "paano-manalangin-tulad-ni-hesus",
-  },
-  "importancia-de-la-lectura-biblica": {
-    en: "importance-of-bible-reading",
-    pt: "importancia-da-leitura-biblica",
-    de: "bedeutung-des-bibellesens",
-    fr: "importance-de-la-lecture-biblique",
-    it: "importanza-della-lettura-biblica",
-    fil: "kahalagahan-ng-pagbabasa-ng-bibliya",
-  },
-  "encontrando-paz-en-un-mundo-caotico": {
-    en: "finding-peace-in-chaos",
-    pt: "encontrando-paz-em-um-mundo-caotico",
-    de: "frieden-finden-in-einer-chaotischen-welt",
-    fr: "trouver-la-paix-dans-un-monde-chaotique",
-    it: "trovare-pace-in-un-mundo-caotico",
-    fil: "paghahanap-ng-kapayapaan-sa-isang-magulo-na-mundo",
-  },
-  // German posts
-  "wie-man-wie-jesus-betet": {
-    en: "how-to-pray-like-jesus",
-    pt: "como-orar-como-jesus",
-    es: "como-orar-como-jesus",
-    fr: "comment-prier-comme-jesus",
-    it: "come-pregare-come-gesu",
-    fil: "paano-manalangin-tulad-ni-hesus",
-  },
-  "bedeutung-des-bibellesens": {
-    en: "importance-of-bible-reading",
-    pt: "importancia-da-leitura-biblica",
-    es: "importancia-de-la-lectura-biblica",
-    fr: "importance-de-la-lecture-biblique",
-    it: "importanza-della-lettura-biblica",
-    fil: "kahalagahan-ng-pagbabasa-ng-bibliya",
-  },
-  "frieden-finden-in-einer-chaotischen-welt": {
-    en: "finding-peace-in-chaos",
-    pt: "encontrando-paz-em-um-mundo-caotico",
-    es: "encontrando-paz-en-un-mundo-caotico",
-    fr: "trouver-la-paix-dans-un-monde-chaotique",
-    it: "trovare-pace-in-un-mondo-caotico",
-    fil: "paghahanap-ng-kapayapaan-sa-isang-magulo-na-mundo",
-  },
-  // French posts
-  "comment-prier-comme-jesus": {
-    en: "how-to-pray-like-jesus",
-    pt: "como-orar-como-jesus",
-    es: "como-orar-como-jesus",
-    de: "wie-man-wie-jesus-betet",
-    it: "come-pregare-come-gesu",
-    fil: "paano-manalangin-tulad-ni-hesus",
-  },
-  "importance-de-la-lecture-biblique": {
-    en: "importance-of-bible-reading",
-    pt: "importancia-da-leitura-biblica",
-    es: "importancia-de-la-lectura-biblica",
-    de: "bedeutung-des-bibellesens",
-    it: "importanza-della-lettura-biblica",
-    fil: "kahalagahan-ng-pagbabasa-ng-bibliya",
-  },
-  "trouver-la-paix-dans-un-monde-chaotique": {
-    en: "finding-peace-in-chaos",
-    pt: "encontrando-paz-em-um-mundo-caotico",
-    es: "encontrando-paz-en-un-mundo-caotico",
-    de: "frieden-finden-in-einer-chaotischen-welt",
-    it: "trovare-pace-in-un-mondo-caotico",
-    fil: "paghahanap-ng-kapayapaan-sa-isang-magulo-na-mundo",
-  },
-  // Italian posts
-  "come-pregare-come-gesu": {
-    en: "how-to-pray-like-jesus",
-    pt: "como-orar-como-jesus",
-    es: "como-orar-como-jesus",
-    de: "wie-man-wie-jesus-betet",
-    fr: "comment-prier-comme-jesus",
-    fil: "paano-manalangin-tulad-ni-hesus",
-  },
-  "importanza-della-lettura-biblica": {
-    en: "importance-of-bible-reading",
-    pt: "importancia-da-leitura-biblica",
-    es: "importancia-de-la-lectura-biblica",
-    de: "bedeutung-des-bibellesens",
-    fr: "importance-de-la-lecture-biblique",
-    it: "importanza-della-lettura-biblica",
-    fil: "kahalagahan-ng-pagbabasa-ng-bibliya",
-  },
-  "trovare-pace-in-un-mondo-caotico": {
-    en: "finding-peace-in-chaos",
-    pt: "encontrando-paz-em-um-mundo-caotico",
-    es: "encontrando-paz-en-un-mundo-caotico",
-    de: "frieden-finden-in-einer-chaotischen-welt",
-    fr: "trouver-la-paix-dans-un-monde-chaotique",
-    it: "trovare-pace-in-un-mondo-caotico",
-    fil: "paghahanap-ng-kapayapaan-sa-isang-magulo-na-mundo",
-  },
-  // Filipino posts
-  "paano-manalangin-tulad-ni-hesus": {
-    en: "how-to-pray-like-jesus",
-    pt: "como-orar-como-jesus",
-    es: "como-orar-como-jesus",
-    de: "wie-man-wie-jesus-betet",
-    fr: "comment-prier-comme-jesus",
-    it: "come-pregare-come-gesu",
-  },
-  "kahalagahan-ng-pagbabasa-ng-bibliya": {
-    en: "importance-of-bible-reading",
-    pt: "importancia-da-leitura-biblica",
-    es: "importancia-de-la-lectura-biblica",
-    de: "bedeutung-des-bibellesens",
-    fr: "importance-de-la-lecture-biblique",
-    it: "importanza-della-lettura-biblica",
-  },
-  "paghahanap-ng-kapayapaan-sa-isang-magulo-na-mundo": {
-    en: "finding-peace-in-chaos",
-    pt: "encontrando-paz-em-um-mundo-caotico",
-    es: "encontrando-paz-en-un-mundo-caotico",
-    de: "frieden-finden-in-einer-chaotischen-welt",
-    fr: "trouver-la-paix-dans-un-monde-chaotique",
-    it: "trovare-pace-in-un-mondo-caotico",
-  },
 }
 
 export async function getAllPosts(lang: string): Promise<Post[]> {
@@ -268,9 +86,6 @@ export async function getAllPosts(lang: string): Promise<Post[]> {
               ? matterResult.data.tags.split(",").map((tag: string) => tag.trim())
               : []
 
-          // Get translations for this post
-          const translations = postTranslations[slug] || {}
-
           // Combine the data with the slug
           return {
             slug,
@@ -280,7 +95,6 @@ export async function getAllPosts(lang: string): Promise<Post[]> {
             content: matterResult.content,
             tags,
             readingTime: Math.ceil(stats.minutes) || 1,
-            translations,
           }
         } catch (error) {
           console.error(`Error processing file ${fileName}:`, error)
@@ -312,12 +126,50 @@ export async function getPostBySlug(lang: string, slug: string): Promise<Post | 
     const langDirectory = path.join(postsDirectory, lang)
 
     if (!fs.existsSync(langDirectory)) {
-      return null
+      // Try to create the directory and sample posts
+      try {
+        fs.mkdirSync(langDirectory, { recursive: true })
+        await createSamplePosts(lang)
+      } catch (error) {
+        console.error(`Error creating directory for language ${lang}:`, error)
+        return null
+      }
     }
 
     const fullPath = path.join(langDirectory, `${slug}.md`)
 
     if (!fs.existsSync(fullPath)) {
+      console.log(`Post ${slug} not found for language ${lang}, checking if we need to create sample posts`)
+
+      // Check if this is one of our standard slugs and create it if needed
+      const standardSlugs = ["how-to-pray-like-jesus", "importance-of-bible-reading", "finding-peace-in-chaos"]
+      if (standardSlugs.includes(slug)) {
+        await createSamplePosts(lang)
+
+        // Try again after creating sample posts
+        if (fs.existsSync(fullPath)) {
+          const fileContents = fs.readFileSync(fullPath, "utf8")
+          const matterResult = matter(fileContents)
+          const stats = readingTime(matterResult.content)
+
+          const tags = Array.isArray(matterResult.data.tags)
+            ? matterResult.data.tags
+            : matterResult.data.tags
+              ? matterResult.data.tags.split(",").map((tag: string) => tag.trim())
+              : []
+
+          return {
+            slug,
+            title: matterResult.data.title || "Untitled Post",
+            date: matterResult.data.date || new Date().toISOString().split("T")[0],
+            excerpt: matterResult.data.excerpt || "",
+            content: matterResult.content,
+            tags,
+            readingTime: Math.ceil(stats.minutes) || 1,
+          }
+        }
+      }
+
       return null
     }
 
@@ -334,9 +186,6 @@ export async function getPostBySlug(lang: string, slug: string): Promise<Post | 
         ? matterResult.data.tags.split(",").map((tag: string) => tag.trim())
         : []
 
-    // Get translations for this post
-    const translations = postTranslations[slug] || {}
-
     return {
       slug,
       title: matterResult.data.title || "Untitled Post",
@@ -345,75 +194,11 @@ export async function getPostBySlug(lang: string, slug: string): Promise<Post | 
       content: matterResult.content,
       tags,
       readingTime: Math.ceil(stats.minutes) || 1,
-      translations,
     }
   } catch (error) {
     console.error(`Error in getPostBySlug for language ${lang} and slug ${slug}:`, error)
     return null
   }
-}
-
-// Check if a post exists in a specific language
-export async function postExistsInLanguage(lang: string, slug: string): Promise<boolean> {
-  try {
-    const langDirectory = path.join(postsDirectory, lang)
-
-    if (!fs.existsSync(langDirectory)) {
-      return false
-    }
-
-    const fullPath = path.join(langDirectory, `${slug}.md`)
-    return fs.existsSync(fullPath)
-  } catch (error) {
-    console.error(`Error in postExistsInLanguage for language ${lang} and slug ${slug}:`, error)
-    return false
-  }
-}
-
-// Get the correct slug for a language
-export function getCorrectSlugForLanguage(originalSlug: string, targetLang: string): string | null {
-  // Check if the original slug has translations
-  const translations = postTranslations[originalSlug]
-  if (translations && translations[targetLang]) {
-    return translations[targetLang]
-  }
-
-  // Check if the original slug is itself a translation
-  for (const [baseSlug, translationMap] of Object.entries(postTranslations)) {
-    if (Object.values(translationMap).includes(originalSlug)) {
-      // Found the base slug, now get the target language version
-      if (translationMap[targetLang]) {
-        return translationMap[targetLang]
-      }
-      // If no translation exists for target language, return the base slug
-      return baseSlug
-    }
-  }
-
-  return null
-}
-
-// Get all available translations for a post
-export function getPostTranslations(slug: string): Record<string, string> {
-  // Direct lookup
-  if (postTranslations[slug]) {
-    return postTranslations[slug]
-  }
-
-  // Reverse lookup - check if this slug is a translation of another post
-  for (const [baseSlug, translationMap] of Object.entries(postTranslations)) {
-    if (Object.values(translationMap).includes(slug)) {
-      // Found it as a translation, return the full map including the base
-      const fullMap = { ...translationMap }
-      // Add the base slug to the map (assuming it's English if not specified)
-      if (!fullMap.en) {
-        fullMap.en = baseSlug
-      }
-      return fullMap
-    }
-  }
-
-  return {}
 }
 
 export async function getPostsByTag(lang: string, tag: string): Promise<Post[]> {
@@ -525,19 +310,19 @@ function getLocalizedTitles(lang: string) {
     pt: [
       {
         title: "Como Orar Como Jesus",
-        slug: "como-orar-como-jesus",
+        slug: "how-to-pray-like-jesus",
         tags: ["oração", "jesus", "fé"],
         excerpt: "Aprenda a orar como Jesus ensinou, com simplicidade e poder.",
       },
       {
         title: "A Importância da Leitura Bíblica",
-        slug: "importancia-da-leitura-biblica",
+        slug: "importance-of-bible-reading",
         tags: ["bíblia", "espiritualidade", "fé"],
         excerpt: "Descubra como a leitura bíblica pode transformar sua vida espiritual.",
       },
       {
         title: "Encontrando Paz em um Mundo Caótico",
-        slug: "encontrando-paz-em-um-mundo-caotico",
+        slug: "finding-peace-in-chaos",
         tags: ["paz", "atenção plena", "espiritualidade"],
         excerpt: "Estratégias práticas para encontrar paz interior no mundo agitado de hoje.",
       },
@@ -545,19 +330,19 @@ function getLocalizedTitles(lang: string) {
     es: [
       {
         title: "Cómo Orar Como Jesús",
-        slug: "como-orar-como-jesus",
+        slug: "how-to-pray-like-jesus",
         tags: ["oración", "jesús", "fe"],
         excerpt: "Aprende a orar como Jesús enseñó, con simplicidad y poder.",
       },
       {
         title: "La Importancia de la Lectura Bíblica",
-        slug: "importancia-de-la-lectura-biblica",
+        slug: "importance-of-bible-reading",
         tags: ["biblia", "espiritualidad", "fe"],
         excerpt: "Descubre cómo la lectura bíblica puede transformar tu vida espiritual.",
       },
       {
         title: "Encontrando Paz en un Mundo Caótico",
-        slug: "encontrando-paz-en-un-mundo-caotico",
+        slug: "finding-peace-in-chaos",
         tags: ["paz", "atención plena", "espiritualidad"],
         excerpt: "Estrategias prácticas para encontrar paz interior en el agitado mundo de hoy.",
       },
@@ -565,19 +350,19 @@ function getLocalizedTitles(lang: string) {
     de: [
       {
         title: "Wie man wie Jesus betet",
-        slug: "wie-man-wie-jesus-betet",
+        slug: "how-to-pray-like-jesus",
         tags: ["gebet", "jesus", "glaube"],
         excerpt: "Lernen Sie zu beten, wie Jesus es lehrte, mit Einfachheit und Kraft.",
       },
       {
         title: "Die Bedeutung des Bibellesens",
-        slug: "bedeutung-des-bibellesens",
+        slug: "importance-of-bible-reading",
         tags: ["bibel", "spiritualität", "glaube"],
         excerpt: "Entdecken Sie, wie Bibellesen Ihr spirituelles Leben verändern kann.",
       },
       {
         title: "Frieden finden in einer chaotischen Welt",
-        slug: "frieden-finden-in-einer-chaotischen-welt",
+        slug: "finding-peace-in-chaos",
         tags: ["frieden", "achtsamkeit", "spiritualität"],
         excerpt: "Praktische Strategien, um inneren Frieden in der hektischen Welt von heute zu finden.",
       },
@@ -585,19 +370,19 @@ function getLocalizedTitles(lang: string) {
     fr: [
       {
         title: "Comment prier comme Jésus",
-        slug: "comment-prier-comme-jesus",
+        slug: "how-to-pray-like-jesus",
         tags: ["prière", "jésus", "foi"],
         excerpt: "Apprenez à prier comme Jésus l'a enseigné, avec simplicité et puissance.",
       },
       {
         title: "L'importance de la lecture biblique",
-        slug: "importance-de-la-lecture-biblique",
+        slug: "importance-of-bible-reading",
         tags: ["bible", "spiritualité", "foi"],
         excerpt: "Découvrez comment la lecture biblique peut transformer votre vie spirituelle.",
       },
       {
         title: "Trouver la paix dans un monde chaotique",
-        slug: "trouver-la-paix-dans-un-monde-chaotique",
+        slug: "finding-peace-in-chaos",
         tags: ["paix", "pleine conscience", "spiritualité"],
         excerpt: "Stratégies pratiques pour trouver la paix intérieure dans le monde trépidant d'aujourd'hui.",
       },
@@ -605,19 +390,19 @@ function getLocalizedTitles(lang: string) {
     it: [
       {
         title: "Come pregare come Gesù",
-        slug: "come-pregare-come-gesu",
+        slug: "how-to-pray-like-jesus",
         tags: ["preghiera", "gesù", "fede"],
         excerpt: "Impara a pregare come ha insegnato Gesù, con semplicità e potenza.",
       },
       {
         title: "L'importanza della lettura biblica",
-        slug: "importanza-della-lettura-biblica",
+        slug: "importance-of-bible-reading",
         tags: ["bibbia", "spiritualità", "fede"],
         excerpt: "Scopri come la lettura biblica può trasformare la tua vita spirituale.",
       },
       {
         title: "Trovare pace in un mondo caotico",
-        slug: "trovare-pace-in-un-mondo-caotico",
+        slug: "finding-peace-in-chaos",
         tags: ["pace", "mindfulness", "spiritualità"],
         excerpt: "Strategie pratiche per trovare la pace interiore nel frenetico mondo di oggi.",
       },
@@ -625,26 +410,25 @@ function getLocalizedTitles(lang: string) {
     fil: [
       {
         title: "Paano Manalangin Tulad ni Hesus",
-        slug: "paano-manalangin-tulad-ni-hesus",
+        slug: "how-to-pray-like-jesus",
         tags: ["panalangin", "hesus", "pananampalataya"],
         excerpt: "Matuto kung paano manalangin tulad ng itinuro ni Hesus, nang may kasimplehan at kapangyarihan.",
       },
       {
         title: "Ang Kahalagahan ng Pagbabasa ng Bibliya",
-        slug: "kahalagahan-ng-pagbabasa-ng-bibliya",
+        slug: "importance-of-bible-reading",
         tags: ["bibliya", "espiritwalidad", "pananampalataya"],
         excerpt: "Tuklasin kung paano mababago ng pagbabasa ng Bibliya ang inyong espirituwal na buhay.",
       },
       {
         title: "Paghahanap ng Kapayapaan sa isang Magulo na Mundo",
-        slug: "paghahanap-ng-kapayapaan-sa-isang-magulo-na-mundo",
+        slug: "finding-peace-in-chaos",
         tags: ["kapayapaan", "mindfulness", "espiritwalidad"],
         excerpt: "Mga praktikal na estratehiya upang makahanap ng panloob na kapayapaan sa abalang mundo ngayon.",
       },
     ],
   }
 
-  // Return titles for the requested language, or English as fallback
   return titlesByLang[lang] || titlesByLang.en
 }
 
@@ -962,7 +746,7 @@ Comme l'a écrit le psalmiste : "Ta parole est une lampe à mes pieds, et une lu
 
 Partagez ce post avec vos amis et votre famille pour les encourager dans leur parcours de lecture biblique !`,
 
-      `Dans le monde trépidant d'aujourd'hui, trouver la paix può sembrare un compito impossibile. Tuttavia, Gesù ci ha insegnato che la vera pace viene dall'interno e dalla nostra relazione con Dio. Ecco alcuni modi per coltivare la pace interiore:
+      `Dans le monde trépidant d'aujourd'hui, trouver la paix peut sembler une tâche impossible. Cependant, Jésus nous a enseigné que la vraie paix vient de l'intérieur et de notre relation avec Dieu. Voici quelques façons de cultiver la paix intérieure :
 
 ## 1. Prière et Méditation Quotidiennes
 Réservez du temps chaque jour pour la prière silencieuse et la réflexion. Cela aide à centrer votre esprit sur Dieu.

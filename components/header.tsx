@@ -56,8 +56,17 @@ export default function Header({ lang, dict }: HeaderProps) {
 
   // Handle language change
   const handleLanguageChange = (targetLang: string, targetPath: string) => {
+    // Set cookie to remember user's manual language selection
+    document.cookie = `preferred-language=${targetLang}; path=/; max-age=${60 * 60 * 24 * 365}` // 1 year
+
     const newUrl = `/${targetPath}${pathWithoutLang}`
     router.push(newUrl)
+  }
+
+  const resetLanguageDetection = () => {
+    // Remove the preferred language cookie to allow auto-detection again
+    document.cookie = "preferred-language=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT"
+    window.location.reload()
   }
 
   return (
@@ -104,22 +113,31 @@ export default function Header({ lang, dict }: HeaderProps) {
           {/* Language Switcher */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <Globe className="h-5 w-5" />
-                <span className="sr-only">Switch language</span>
+              <Button variant="outline" size="sm" className="gap-2">
+                <Globe className="h-4 w-4" />
+                <span className="hidden sm:inline">
+                  {languages.find((l) => l.code === lang)?.label || lang.toUpperCase()}
+                </span>
+                <span className="sm:hidden">{lang.toUpperCase()}</span>
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
+            <DropdownMenuContent align="end" className="w-48">
+              <div className="px-2 py-1 text-xs text-muted-foreground border-b mb-1">Choose your language</div>
               {languages.map((language) => (
                 <DropdownMenuItem
                   key={language.code}
                   onClick={() => handleLanguageChange(language.code, language.path)}
-                  className={language.code === lang ? "font-bold" : ""}
+                  className={language.code === lang ? "font-bold bg-muted" : ""}
                 >
-                  {language.label}
-                  {language.code === lang && " (Current)"}
+                  <div className="flex items-center justify-between w-full">
+                    <span>{language.label}</span>
+                    {language.code === lang && <span className="text-xs text-blue-500">✓</span>}
+                  </div>
                 </DropdownMenuItem>
               ))}
+              <DropdownMenuItem onClick={resetLanguageDetection} className="text-xs text-muted-foreground border-t">
+                🌍 Auto-detect location
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
 
@@ -181,6 +199,17 @@ export default function Header({ lang, dict }: HeaderProps) {
                   </Button>
                 ))}
               </div>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => {
+                  resetLanguageDetection()
+                  closeMenu()
+                }}
+                className="w-full mt-2 text-xs text-muted-foreground"
+              >
+                🌍 Auto-detect location
+              </Button>
             </div>
           </div>
         </div>

@@ -7,6 +7,7 @@ import Footer from "@/components/footer"
 import { ThemeProvider } from "@/components/theme-provider"
 import type { Metadata } from "next"
 import ReadingProgress from "@/components/reading-progress"
+import CountryDetector from "@/components/country-detector"
 
 const inter = Inter({ subsets: ["latin"], display: "swap" })
 
@@ -147,6 +148,7 @@ export default async function RootLayout({
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <CountryDetector />
           <div className="flex min-h-screen flex-col">
             <Header lang={params.lang} dict={dict} />
             <main className="flex-1 container mx-auto px-4 py-8 relative">
