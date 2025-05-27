@@ -22,7 +22,7 @@ export default function PostCard({ post, lang, dict }: PostCardProps) {
     <Card className="flex flex-col h-full overflow-hidden border-0 shadow-sm hover:shadow-md transition-shadow">
       <div className="relative w-full h-40 overflow-hidden">
         <OptimizedImage
-          src={`/aculpadeabraao.png?height=300&width=500&text=${encodeURIComponent(post.title)}`}
+          src={`/placeholder.svg?height=300&width=500&text=${encodeURIComponent(post.title)}`}
           alt={post.title}
           fill
           className="object-cover"
