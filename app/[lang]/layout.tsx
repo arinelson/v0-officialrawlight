@@ -1,7 +1,7 @@
 import type React from "react"
 import { Inter } from "next/font/google"
 import "../globals.css"
-import { getDictionaryServer } from "@/lib/dictionaries-server"
+import { getDictionary } from "@/lib/dictionaries"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -11,9 +11,36 @@ import CountryDetector from "@/components/country-detector"
 
 const inter = Inter({ subsets: ["latin"], display: "swap" })
 
+// Default fallback dictionary
+const defaultDict = {
+  site: {
+    name: "LUZ CRUA",
+    description: "A multilingual blog",
+    keywords: "blog, multilingual, content",
+  },
+  nav: {
+    home: "Home",
+    about: "About",
+    tags: "Tags",
+    search: "Search",
+    contact: "Contact",
+    posts: "Posts",
+    webstories: "WebStories",
+  },
+  footer: {
+    rights: "All rights reserved.",
+    privacy: "Privacy Policy",
+    terms: "Terms of Use",
+  },
+  search: {
+    placeholder: "Search...",
+    button: "Search",
+  },
+}
+
 export async function generateMetadata({ params }: { params: { lang: string } }): Promise<Metadata> {
   try {
-    const dict = await getDictionaryServer(params.lang)
+    const dict = await getDictionary(params.lang)
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://officialrawlight.com"
 
     // Generate alternate URLs for all supported languages
@@ -25,22 +52,22 @@ export async function generateMetadata({ params }: { params: { lang: string } })
     })
 
     return {
-      title: dict.site.name,
-      description: dict.site.description,
-      keywords: dict.site.keywords,
+      title: dict?.site?.name || defaultDict.site.name,
+      description: dict?.site?.description || defaultDict.site.description,
+      keywords: dict?.site?.keywords || defaultDict.site.keywords,
       authors: [{ name: "LUZ CRUA" }],
       openGraph: {
-        title: dict.site.name,
-        description: dict.site.description,
+        title: dict?.site?.name || defaultDict.site.name,
+        description: dict?.site?.description || defaultDict.site.description,
         url: `${baseUrl}/${params.lang}`,
-        siteName: dict.site.name,
+        siteName: dict?.site?.name || defaultDict.site.name,
         locale: params.lang,
         type: "website",
       },
       twitter: {
         card: "summary_large_image",
-        title: dict.site.name,
-        description: dict.site.description,
+        title: dict?.site?.name || defaultDict.site.name,
+        description: dict?.site?.description || defaultDict.site.description,
       },
       alternates: {
         canonical: `${baseUrl}/${params.lang}`,
@@ -51,10 +78,10 @@ export async function generateMetadata({ params }: { params: { lang: string } })
       },
     }
   } catch (error) {
-    // Fallback metadata if dictionary fails to load
+    console.error("Error generating metadata:", error)
     return {
-      title: "LUZ CRUA",
-      description: "A multilingual blog",
+      title: defaultDict.site.name,
+      description: defaultDict.site.description,
     }
   }
 }
@@ -66,36 +93,14 @@ export default async function RootLayout({
   children: React.ReactNode
   params: { lang: string }
 }) {
-  let dict
+  let dict = defaultDict
 
   try {
-    dict = await getDictionaryServer(params.lang)
+    const loadedDict = await getDictionary(params.lang)
+    dict = { ...defaultDict, ...loadedDict }
   } catch (error) {
-    // Provide a fallback dictionary if loading fails
-    dict = {
-      site: {
-        name: "LUZ CRUA",
-        description: "A multilingual blog",
-      },
-      nav: {
-        home: "Home",
-        about: "About",
-        tags: "Tags",
-        search: "Search",
-        contact: "Contact",
-        posts: "Posts",
-        webstories: "WebStories",
-      },
-      footer: {
-        rights: "All rights reserved.",
-        privacy: "Privacy Policy",
-        terms: "Terms of Use",
-      },
-      search: {
-        placeholder: "Search...",
-        button: "Search",
-      },
-    }
+    console.error("Error loading dictionary in layout:", error)
+    // Use default dict as fallback
   }
 
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://officialrawlight.com"

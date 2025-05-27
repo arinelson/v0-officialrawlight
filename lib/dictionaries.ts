@@ -1,3 +1,4 @@
+// Client-safe version without server-only
 const dictionaries = {
   en: () => import("./dictionaries/en.json").then((module) => module.default),
   pt: () => import("./dictionaries/pt.json").then((module) => module.default),
@@ -9,8 +10,11 @@ const dictionaries = {
 }
 
 export const getDictionary = async (locale: string) => {
-  if (!dictionaries[locale as keyof typeof dictionaries]) {
-    return dictionaries.en()
+  try {
+    const dictionary = dictionaries[locale as keyof typeof dictionaries] || dictionaries.en
+    return await dictionary()
+  } catch (error) {
+    console.error("Failed to load dictionary:", error)
+    return await dictionaries.en()
   }
-  return dictionaries[locale as keyof typeof dictionaries]()
 }
