@@ -1,7 +1,7 @@
 import type React from "react"
 import { Inter } from "next/font/google"
 import "../globals.css"
-import { getDictionary } from "@/lib/dictionaries"
+import { getDictionaryServer } from "@/lib/dictionaries-server"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -13,7 +13,7 @@ const inter = Inter({ subsets: ["latin"], display: "swap" })
 
 export async function generateMetadata({ params }: { params: { lang: string } }): Promise<Metadata> {
   try {
-    const dict = await getDictionary(params.lang)
+    const dict = await getDictionaryServer(params.lang)
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://officialrawlight.com"
 
     // Generate alternate URLs for all supported languages
@@ -69,7 +69,7 @@ export default async function RootLayout({
   let dict
 
   try {
-    dict = await getDictionary(params.lang)
+    dict = await getDictionaryServer(params.lang)
   } catch (error) {
     // Provide a fallback dictionary if loading fails
     dict = {
