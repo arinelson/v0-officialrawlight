@@ -100,6 +100,9 @@ export default async function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
 
+        {/* Preload critical resources */}
+        <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+
         {/* Hreflang tags for international SEO */}
         {supportedLanguages.map((langCode) => (
           <link key={langCode} rel="alternate" href={`${baseUrl}/${langCode}`} hrefLang={langCode} />

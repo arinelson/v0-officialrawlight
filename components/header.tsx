@@ -1,10 +1,10 @@
 "use client"
 
 import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Globe, Sun, Moon } from "lucide-react"
-import { useState } from "react"
+import { Menu, X, Globe, Sun, Moon, Loader2 } from "lucide-react"
+import { useState, useTransition } from "react"
 import { useTheme } from "next-themes"
 
 interface HeaderProps {
@@ -14,8 +14,11 @@ interface HeaderProps {
 
 export function Header({ dict, lang }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isLanguageChanging, setIsLanguageChanging] = useState(false)
   const pathname = usePathname()
+  const router = useRouter()
   const { theme, setTheme } = useTheme()
+  const [isPending, startTransition] = useTransition()
 
   const languages = [
     { code: "en", name: "English", flag: "🇺🇸" },
@@ -30,22 +33,42 @@ export function Header({ dict, lang }: HeaderProps) {
   const currentLang = languages.find((l) => l.code === lang) || languages[0]
 
   const switchLanguage = (newLang: string) => {
-    // Set manual selection cookie
+    if (newLang === lang) return // Don't switch if same language
+
+    setIsLanguageChanging(true)
+
+    // Set manual selection cookie immediately
     document.cookie = `manual-lang=${newLang}; path=/; max-age=31536000`
 
     // Get current path without language
     const pathWithoutLang = pathname.replace(`/${lang}`, "") || "/"
+    const newUrl = `/${newLang}${pathWithoutLang}`
 
-    // Navigate to new language
-    window.location.href = `/${newLang}${pathWithoutLang}`
+    // Use startTransition for better UX
+    startTransition(() => {
+      router.push(newUrl)
+    })
+
+    // Reset loading state after a short delay
+    setTimeout(() => {
+      setIsLanguageChanging(false)
+    }, 1000)
   }
 
   const resetToAutoDetect = () => {
+    setIsLanguageChanging(true)
+
     // Remove manual selection cookie
     document.cookie = "manual-lang=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT"
 
-    // Redirect to root for auto-detection
-    window.location.href = "/"
+    // Use router for faster navigation
+    startTransition(() => {
+      router.push("/")
+    })
+
+    setTimeout(() => {
+      setIsLanguageChanging(false)
+    }, 1000)
   }
 
   const toggleTheme = () => {
@@ -145,44 +168,61 @@ export function Header({ dict, lang }: HeaderProps) {
 
             {/* Language Selector */}
             <div className="relative group">
-              <Button variant="ghost" size="sm" className="h-8 px-2 text-xs">
-                <Globe className="h-4 w-4 mr-1" />
+              <Button variant="ghost" size="sm" className="h-8 px-2 text-xs" disabled={isLanguageChanging || isPending}>
+                {isLanguageChanging || isPending ? (
+                  <Loader2 className="h-4 w-4 mr-1 animate-spin" />
+                ) : (
+                  <Globe className="h-4 w-4 mr-1" />
+                )}
                 <span className="mr-1">{currentLang.flag}</span>
                 <span className="hidden sm:inline">{currentLang.name}</span>
                 <span className="sm:hidden">{currentLang.code.toUpperCase()}</span>
               </Button>
 
-              <div className="absolute right-0 top-full mt-1 w-48 bg-background border rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                <div className="p-2">
-                  <div className="text-xs text-muted-foreground mb-2 px-2">
-                    {dict?.language?.select || "Select Language"}
-                  </div>
-                  {languages.map((language) => (
+              {!isLanguageChanging && !isPending && (
+                <div className="absolute right-0 top-full mt-1 w-48 bg-background border rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                  <div className="p-2">
+                    <div className="text-xs text-muted-foreground mb-2 px-2">
+                      {dict?.language?.select || "Select Language"}
+                    </div>
+                    {languages.map((language) => (
+                      <button
+                        key={language.code}
+                        onClick={() => switchLanguage(language.code)}
+                        disabled={language.code === lang}
+                        className={`w-full text-left px-2 py-1 text-sm rounded hover:bg-accent flex items-center space-x-2 transition-colors ${
+                          language.code === lang ? "bg-accent opacity-50 cursor-not-allowed" : ""
+                        }`}
+                      >
+                        <span>{language.flag}</span>
+                        <span>{language.name}</span>
+                        {language.code === lang && <span className="ml-auto text-xs text-muted-foreground">✓</span>}
+                      </button>
+                    ))}
+                    <hr className="my-2" />
                     <button
-                      key={language.code}
-                      onClick={() => switchLanguage(language.code)}
-                      className={`w-full text-left px-2 py-1 text-sm rounded hover:bg-accent flex items-center space-x-2 ${
-                        language.code === lang ? "bg-accent" : ""
-                      }`}
+                      onClick={resetToAutoDetect}
+                      className="w-full text-left px-2 py-1 text-xs text-muted-foreground hover:bg-accent rounded transition-colors"
                     >
-                      <span>{language.flag}</span>
-                      <span>{language.name}</span>
-                      {language.code === lang && <span className="ml-auto text-xs text-muted-foreground">✓</span>}
+                      🌍 {dict?.language?.autoDetect || "Auto-detect"}
                     </button>
-                  ))}
-                  <hr className="my-2" />
-                  <button
-                    onClick={resetToAutoDetect}
-                    className="w-full text-left px-2 py-1 text-xs text-muted-foreground hover:bg-accent rounded"
-                  >
-                    🌍 {dict?.language?.autoDetect || "Auto-detect"}
-                  </button>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>
       </div>
+
+      {/* Loading overlay for language change */}
+      {(isLanguageChanging || isPending) && (
+        <div className="absolute inset-0 bg-background/50 backdrop-blur-sm flex items-center justify-center z-50">
+          <div className="flex items-center space-x-2 text-sm">
+            <Loader2 className="h-4 w-4 animate-spin" />
+            <span>Changing language...</span>
+          </div>
+        </div>
+      )}
     </header>
   )
 }
