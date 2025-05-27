@@ -1,0 +1,151 @@
+{
+  "site": {
+    "name": "LUZ CRUA",
+    "description": "Isang modernong at responsive na static blog na nakatuon sa organisasyon ng nilalaman at karanasan ng gumagamit",
+    "keywords": "blog, minimalist, nilalaman, karanasan ng gumagamit, organisasyon"
+  },
+  "nav": {
+    "home": "Tahanan",
+    "about": "Tungkol Sa Amin",
+    "tags": "Mga Tag",
+    "search": "Maghanap",
+    "contact": "Makipag-ugnayan",
+    "posts": "Mga Artikulo",
+    "webstories": "WebStories"
+  },
+  "home": {
+    "title": "BlogMinimalista",
+    "subtitle": "Isang modernong at responsive na static blog na nakatuon sa organisasyon ng nilalaman at karanasan ng gumagamit",
+    "latestPosts": "Mga Pinakabagong Artikulo",
+    "featuredPosts": "Mga Tampok na Artikulo",
+    "featuredPost": "Tampok na Artikulo",
+    "viewAll": "Tingnan Lahat",
+    "aboutButton": "Tungkol Sa Blog",
+    "exploreButton": "Tuklasin ang Mga Tag"
+  },
+  "post": {
+    "readMore": "Magbasa Pa",
+    "minutes": "min na pagbabasa",
+    "readingTime": "Oras ng pagbabasa",
+    "relatedPosts": "Mga Kaugnay na Artikulo",
+    "share": "Ibahagi ang artikulong ito",
+    "more": "Higit Pa",
+    "copyLink": "Kopyahin ang link"
+  },
+  "posts": {
+    "title": "Lahat ng Mga Artikulo",
+    "description": "Tuklasin ang lahat ng aming mga artikulo at mga turo"
+  },
+  "tags": {
+    "title": "Tag",
+    "allTags": "Lahat ng Mga Tag",
+    "allTagsDescription": "Mag-browse ng lahat ng mga paksa sa aming blog",
+    "description": "Mga artikulong may tag na",
+    "post": "artikulo",
+    "posts": "mga artikulo"
+  },
+  "search": {
+    "title": "Maghanap",
+    "description": "Maghanap ng mga artikulo ayon sa pamagat, nilalaman, o mga tag",
+    "placeholder": "Maghanap ng mga artikulo...",
+    "button": "Maghanap",
+    "loading": "Naglo-load...",
+    "noResults": "Walang nahanap na mga artikulong tumutugma sa iyong paghahanap."
+  },
+  "newsletter": {
+    "title": "Mag-subscribe sa aming newsletter",
+    "description": "Matanggap ang pinakabagong mga artikulo direkta sa iyong inbox",
+    "placeholder": "Ang iyong email address",
+    "submit": "Mag-subscribe",
+    "submitting": "Isinusumite...",
+    "successTitle": "Matagumpay na naka-subscribe!",
+    "successMessage": "Salamat sa pag-subscribe sa aming newsletter.",
+    "errorTitle": "Error",
+    "errorMessage": "Nagkaroon ng error sa pag-subscribe. Pakisubukang muli.",
+    "privacy": "Iginagalang namin ang iyong privacy. Maaari kang mag-unsubscribe anumang oras."
+  },
+  "about": {
+    "title": "Tungkol Sa Amin",
+    "subtitle": "Ang aming misyon at bisyon",
+    "imageAlt": "BlogMinimalista Team",
+    "missionTitle": "Ang Aming Misyon",
+    "missionText": "Magbigay ng malinis, walang-abala na karanasan sa pagbabasa na nakatuon sa kalidad ng nilalaman at accessibility.",
+    "visionTitle": "Ang Aming Bisyon",
+    "visionText": "Isang mundo kung saan ang impormasyon ay madaling ma-access, maayos na organisado, at ipinakikita sa isang user-friendly na paraan.",
+    "storyTitle": "Ang Aming Kwento",
+    "storyText1": "Ang BlogMinimalista ay itinatag noong 2023 na may simpleng layunin: lumikha ng isang blog platform na nagbibigay prayoridad sa nilalaman at karanasan ng gumagamit higit sa lahat.",
+    "storyText2": "Ang aming koponan ay binubuo ng mga dedikadong indibidwal na masigasig sa malinis na disenyo, accessibility, at de-kalidad na nilalaman.",
+    "valuesTitle": "Ang Aming Mga Halaga",
+    "value1": "Kasimplehan: Naniniwala kami sa pag-aalis ng mga hindi kinakailangang abala upang makapagtuon sa kung ano ang talagang mahalaga.",
+    "value2": "Accessibility: Ang nilalaman ay dapat ma-access ng lahat, anuman ang device o kakayahan.",
+    "value3": "Kalidad: Binibigyan namin ng prayoridad ang mabuting nireresearch, pinag-isipang nilalaman kaysa sa dami."
+  },
+  "contact": {
+    "title": "Makipag-ugnayan",
+    "subtitle": "Makipag-ugnayan sa amin",
+    "nameLabel": "Pangalan",
+    "emailLabel": "Email",
+    "subjectLabel": "Paksa",
+    "messageLabel": "Mensahe",
+    "submit": "Ipadala ang Mensahe",
+    "submitting": "Ipinapadala...",
+    "successTitle": "Naipadala ang mensahe!",
+    "successMessage": "Makikipag-ugnayan kami sa iyo sa lalong madaling panahon.",
+    "errorTitle": "Error",
+    "errorMessage": "Nagkaroon ng error sa pagpapadala ng iyong mensahe. Pakisubukang muli.",
+    "alternativeTitle": "Iba Pang Paraan Upang Makipag-ugnayan",
+    "emailTitle": "Email",
+    "socialTitle": "Social Media"
+  },
+  "privacy": {
+    "title": "Patakaran sa Privacy",
+    "description": "Paano namin pinoprotektahan ang iyong personal na data",
+    "lastUpdated": "Huling na-update",
+    "date": "Mayo 1, 2023",
+    "introTitle": "Panimula",
+    "introText": "Sa BlogMinimalista, pinahahalagahan namin ang iyong privacy. Ang Patakaran sa Privacy na ito ay nagpapaliwanag kung paano namin kinokolekta, ginagamit, at pinoprotektahan ang iyong personal na impormasyon kapag binibisita mo ang aming website.",
+    "collectionTitle": "Impormasyong Kinokolekta Namin",
+    "collectionText": "Maaari kaming mangolekta ng sumusunod na impormasyon:",
+    "collectionItem1": "Personal na impormasyon tulad ng pangalan at email address kapag nakikipag-ugnayan ka sa amin",
+    "collectionItem2": "Data ng paggamit tulad ng mga pahinang binisita at oras na ginugol sa aming website",
+    "collectionItem3": "Teknikal na data tulad ng IP address, uri ng browser, at impormasyon ng device",
+    "collectionItem4": "Cookies at katulad na mga teknolohiya ng pagsubaybay",
+    "cookiesTitle": "Cookies",
+    "cookiesText": "Gumagamit kami ng cookies upang mapabuti ang iyong karanasan sa pag-browse, suriin ang trapiko ng site, at i-personalize ang nilalaman. Maaari mong kontrolin ang cookies sa pamamagitan ng mga setting ng iyong browser.",
+    "adsenseTitle": "Google AdSense",
+    "adsenseText": "Gumagamit kami ng Google AdSense upang magpakita ng mga ad sa aming website. Gumagamit ang Google AdSense ng cookies upang maghatid ng mga ad batay sa iyong mga nakaraang pagbisita sa aming website o sa ibang mga website.",
+    "thirdPartyTitle": "Mga Serbisyo ng Third-Party",
+    "thirdPartyText": "Maaari kaming gumamit ng mga serbisyo ng third-party tulad ng Google Analytics upang suriin ang trapiko ng site. Ang mga serbisyong ito ay maaaring mangolekta ng impormasyon tungkol sa iyong paggamit ng aming website.",
+    "rightsTitle": "Ang Iyong Mga Karapatan",
+    "rightsText": "Mayroon kang karapatang i-access, iwasto, o burahin ang iyong personal na impormasyon. Maaari kang makipag-ugnayan sa amin upang gamitin ang mga karapatang ito.",
+    "contactTitle": "Makipag-ugnayan Sa Amin",
+    "contactText": "Kung mayroon kang mga katanungan tungkol sa aming Patakaran sa Privacy, mangyaring makipag-ugnayan sa amin sa privacy@blogminimalista.com."
+  },
+  "terms": {
+    "title": "Mga Tuntunin ng Paggamit",
+    "description": "Mga patakaran para sa paggamit ng website ng BlogMinimalista",
+    "lastUpdated": "Huling na-update",
+    "date": "Mayo 1, 2023",
+    "introTitle": "Panimula",
+    "introText": "Sa pamamagitan ng pag-access at paggamit ng website ng BlogMinimalista, sumasang-ayon ka na sumunod sa mga Tuntunin ng Paggamit na ito. Kung hindi ka sumasang-ayon sa anumang bahagi ng mga tuntuning ito, mangyaring huwag gamitin ang aming website.",
+    "useTitle": "Paggamit ng Aming Website",
+    "useText": "Maaari mong gamitin ang aming website para sa mga legal na layunin lamang. Hindi mo dapat gamitin ang aming website sa anumang paraan na nagdudulot, o maaaring magdulot, ng pinsala sa website o pagkasira ng availability o accessibility ng website.",
+    "contentTitle": "Nilalaman",
+    "contentText": "Lahat ng nilalaman sa aming website ay ibinibigay para sa mga layuning pang-impormasyon at pang-edukasyon lamang. Hindi namin ginagarantiya ang katumpakan, pagkakumpleto, o kagamitan ng anumang impormasyon sa aming website.",
+    "intellectualTitle": "Intelektwal na Ari-arian",
+    "intellectualText": "Lahat ng nilalaman sa aming website, kabilang ang teksto, graphics, mga logo, at mga imahe, ay pag-aari ng BlogMinimalista at protektado ng mga batas sa copyright. Hindi mo maaaring kopyahin, ipamahagi, o gamitin ang aming nilalaman nang walang aming pahintulot.",
+    "linksTitle": "Mga Link sa Ibang Mga Website",
+    "linksText": "Ang aming website ay maaaring maglaman ng mga link sa mga website ng third-party. Hindi kami responsable para sa nilalaman o mga kasanayan sa privacy ng mga website na ito.",
+    "terminationTitle": "Pagwawakas",
+    "terminationText": "Maaari naming wakasan o suspindihin ang iyong access sa aming website kaagad, nang walang paunang abiso o pananagutan, para sa anumang dahilan, kabilang, nang walang limitasyon, kung nilalabag mo ang mga Tuntunin ng Paggamit na ito.",
+    "disclaimerTitle": "Disclaimer",
+    "disclaimerText": "Ang aming website ay ibinibigay 'as is' at 'as available'. Hindi kami gumagawa ng mga garantiya, hayagan o ipinahiwatig, tungkol sa operasyon ng aming website o sa impormasyon, nilalaman, o mga materyales na kasama sa aming website.",
+    "contactTitle": "Makipag-ugnayan Sa Amin",
+    "contactText": "Kung mayroon kang mga katanungan tungkol sa aming Mga Tuntunin ng Paggamit, mangyaring makipag-ugnayan sa amin sa terms@blogminimalista.com."
+  },
+  "footer": {
+    "rights": "Lahat ng karapatan ay nakalaan.",
+    "privacy": "Patakaran sa Privacy",
+    "terms": "Mga Tuntunin ng Paggamit"
+  }
+}

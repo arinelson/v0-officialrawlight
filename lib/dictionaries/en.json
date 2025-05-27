@@ -1,0 +1,151 @@
+{
+  "site": {
+    "name": "LUZ CRUA",
+    "description": "A modern and responsive static blog focused on content organization and user experience",
+    "keywords": "blog, minimalist, content, user experience, organization"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "tags": "Tags",
+    "search": "Search",
+    "contact": "Contact",
+    "posts": "Posts",
+    "webstories": "WebStories"
+  },
+  "home": {
+    "title": "BlogMinimalista",
+    "subtitle": "A modern and responsive static blog focused on content organization and user experience",
+    "latestPosts": "Latest Posts",
+    "featuredPosts": "Featured Posts",
+    "featuredPost": "Featured Post",
+    "viewAll": "View All",
+    "aboutButton": "About the Blog",
+    "exploreButton": "Explore Tags"
+  },
+  "post": {
+    "readMore": "Read More",
+    "minutes": "min read",
+    "readingTime": "Reading time",
+    "relatedPosts": "Related Posts",
+    "share": "Share this post",
+    "more": "More",
+    "copyLink": "Copy link"
+  },
+  "tags": {
+    "title": "Tag",
+    "allTags": "All Tags",
+    "allTagsDescription": "Browse all topics on our blog",
+    "description": "Posts tagged with",
+    "post": "post",
+    "posts": "posts"
+  },
+  "search": {
+    "title": "Search",
+    "description": "Find posts by title, content, or tags",
+    "placeholder": "Search posts...",
+    "button": "Search",
+    "loading": "Loading...",
+    "noResults": "No posts found matching your search."
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "Our mission and vision",
+    "imageAlt": "BlogMinimalista Team",
+    "missionTitle": "Our Mission",
+    "missionText": "To provide a clean, distraction-free reading experience with focus on content quality and accessibility.",
+    "visionTitle": "Our Vision",
+    "visionText": "A world where information is easily accessible, well-organized, and presented in a user-friendly manner.",
+    "storyTitle": "Our Story",
+    "storyText1": "BlogMinimalista was founded in 2023 with a simple goal: to create a blog platform that prioritizes content and user experience above all else.",
+    "storyText2": "Our team consists of dedicated individuals who are passionate about clean design, accessibility, and quality content.",
+    "valuesTitle": "Our Values",
+    "value1": "Simplicity: We believe in removing unnecessary distractions to focus on what matters.",
+    "value2": "Accessibility: Content should be accessible to everyone, regardless of device or ability.",
+    "value3": "Quality: We prioritize well-researched, thoughtful content over quantity."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with us",
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "subjectLabel": "Subject",
+    "messageLabel": "Message",
+    "submit": "Send Message",
+    "submitting": "Sending...",
+    "successTitle": "Message sent!",
+    "successMessage": "We will get back to you soon.",
+    "errorTitle": "Error",
+    "errorMessage": "There was an error sending your message. Please try again.",
+    "alternativeTitle": "Other Ways to Reach Us",
+    "emailTitle": "Email",
+    "socialTitle": "Social Media"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "description": "How we protect your personal data",
+    "lastUpdated": "Last updated",
+    "date": "May 1, 2023",
+    "introTitle": "Introduction",
+    "introText": "At BlogMinimalista, we value your privacy. This Privacy Policy explains how we collect, use, and protect your personal information when you visit our website.",
+    "collectionTitle": "Information We Collect",
+    "collectionText": "We may collect the following information:",
+    "collectionItem1": "Personal information such as name and email address when you contact us",
+    "collectionItem2": "Usage data such as pages visited and time spent on our website",
+    "collectionItem3": "Technical data such as IP address, browser type, and device information",
+    "collectionItem4": "Cookies and similar tracking technologies",
+    "cookiesTitle": "Cookies",
+    "cookiesText": "We use cookies to improve your browsing experience, analyze site traffic, and personalize content. You can control cookies through your browser settings.",
+    "adsenseTitle": "Google AdSense",
+    "adsenseText": "We use Google AdSense to display ads on our website. Google AdSense uses cookies to serve ads based on your previous visits to our website or other websites.",
+    "thirdPartyTitle": "Third-Party Services",
+    "thirdPartyText": "We may use third-party services such as Google Analytics to analyze site traffic. These services may collect information about your use of our website.",
+    "rightsTitle": "Your Rights",
+    "rightsText": "You have the right to access, correct, or delete your personal information. You can contact us to exercise these rights.",
+    "contactTitle": "Contact Us",
+    "contactText": "If you have any questions about our Privacy Policy, please contact us at privacy@blogminimalista.com."
+  },
+  "terms": {
+    "title": "Terms of Use",
+    "description": "Rules for using the BlogMinimalista website",
+    "lastUpdated": "Last updated",
+    "date": "May 1, 2023",
+    "introTitle": "Introduction",
+    "introText": "By accessing and using the BlogMinimalista website, you agree to be bound by these Terms of Use. If you do not agree with any part of these terms, please do not use our website.",
+    "useTitle": "Use of Our Website",
+    "useText": "You may use our website for lawful purposes only. You must not use our website in any way that causes, or may cause, damage to the website or impairment of the availability or accessibility of the website.",
+    "contentTitle": "Content",
+    "contentText": "All content on our website is provided for informational and educational purposes only. We do not guarantee the accuracy, completeness, or usefulness of any information on our website.",
+    "intellectualTitle": "Intellectual Property",
+    "intellectualText": "All content on our website, including text, graphics, logos, and images, is the property of BlogMinimalista and is protected by copyright laws. You may not reproduce, distribute, or use our content without our permission.",
+    "linksTitle": "Links to Other Websites",
+    "linksText": "Our website may contain links to third-party websites. We are not responsible for the content or privacy practices of these websites.",
+    "terminationTitle": "Termination",
+    "terminationText": "We may terminate or suspend your access to our website immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach these Terms of Use.",
+    "disclaimerTitle": "Disclaimer",
+    "disclaimerText": "Our website is provided on an 'as is' and 'as available' basis. We make no warranties, expressed or implied, regarding the operation of our website or the information, content, or materials included on our website.",
+    "contactTitle": "Contact Us",
+    "contactText": "If you have any questions about our Terms of Use, please contact us at terms@blogminimalista.com."
+  },
+  "newsletter": {
+    "title": "Subscribe to our newsletter",
+    "description": "Get the latest articles directly in your inbox",
+    "placeholder": "Your email address",
+    "submit": "Subscribe",
+    "submitting": "Submitting...",
+    "successTitle": "Successfully subscribed!",
+    "successMessage": "Thank you for subscribing to our newsletter.",
+    "errorTitle": "Error",
+    "errorMessage": "There was an error subscribing. Please try again.",
+    "privacy": "We respect your privacy. You can unsubscribe at any time."
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use"
+  },
+  "posts": {
+    "title": "All Posts",
+    "description": "Explore all our articles and teachings"
+  }
+}

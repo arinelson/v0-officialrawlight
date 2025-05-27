@@ -1,0 +1,163 @@
+{
+  "site": {
+    "name": "LUZ CRUA",
+    "description": "Un blog statique moderne et responsive axé sur l'organisation du contenu et l'expérience utilisateur",
+    "keywords": "blog, minimaliste, contenu, expérience utilisateur, organisation"
+  },
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "tags": "Étiquettes",
+    "search": "Recherche",
+    "contact": "Contact",
+    "posts": "Articles",
+    "webstories": "WebStories"
+  },
+  "home": {
+    "title": "BlogMinimalista",
+    "subtitle": "Un blog statique moderne et responsive axé sur l'organisation du contenu et l'expérience utilisateur",
+    "latestPosts": "Derniers Articles",
+    "featuredPosts": "Articles en Vedette",
+    "featuredPost": "Article en Vedette",
+    "viewAll": "Voir tout",
+    "aboutButton": "À propos du Blog",
+    "exploreButton": "Explorer les Étiquettes"
+  },
+  "post": {
+    "readMore": "Lire la suite",
+    "minutes": "min de lecture",
+    "readingTime": "Temps de lecture",
+    "relatedPosts": "Articles Connexes",
+    "share": "Partagez cet article",
+    "more": "Plus",
+    "copyLink": "Copier le lien"
+  },
+  "posts": {
+    "title": "Tous les Articles",
+    "description": "Découvrez tous nos articles et enseignements"
+  },
+  "tags": {
+    "title": "Étiquette",
+    "allTags": "Toutes les Étiquettes",
+    "allTagsDescription": "Parcourez tous les sujets de notre blog",
+    "description": "Articles étiquetés avec",
+    "post": "article",
+    "posts": "articles"
+  },
+  "search": {
+    "title": "Recherche",
+    "description": "Trouvez des articles par titre, contenu ou étiquettes",
+    "placeholder": "Rechercher des articles...",
+    "button": "Rechercher",
+    "loading": "Chargement...",
+    "noResults": "Aucun article trouvé correspondant à votre recherche."
+  },
+  "newsletter": {
+    "title": "Abonnez-vous à notre newsletter",
+    "description": "Recevez les derniers articles directement dans votre boîte de réception",
+    "placeholder": "Votre adresse e-mail",
+    "submit": "S'abonner",
+    "submitting": "Envoi en cours...",
+    "successTitle": "Abonnement réussi !",
+    "successMessage": "Merci de vous être abonné à notre newsletter.",
+    "errorTitle": "Erreur",
+    "errorMessage": "Une erreur s'est produite lors de l'abonnement. Veuillez réessayer.",
+    "privacy": "Nous respectons votre vie privée. Vous pouvez vous désabonner à tout moment."
+  },
+  "about": {
+    "title": "À Propos de Nous",
+    "subtitle": "Notre mission et vision",
+    "imageAlt": "Équipe BlogMinimalista",
+    "missionTitle": "Notre Mission",
+    "missionText": "Offrir une expérience de lecture propre et sans distraction, en mettant l'accent sur la qualité du contenu et l'accessibilité.",
+    "visionTitle": "Notre Vision",
+    "visionText": "Un monde où l'information est facilement accessible, bien organisée et présentée de manière conviviale.",
+    "storyTitle": "Notre Histoire",
+    "storyText1": "BlogMinimalista a été fondé en 2023 avec un objectif simple : créer une plateforme de blog qui privilégie le contenu et l'expérience utilisateur avant tout.",
+    "storyText2": "Notre équipe est composée de personnes dévouées qui sont passionnées par le design épuré, l'accessibilité et le contenu de qualité.",
+    "valuesTitle": "Nos Valeurs",
+    "value1": "Simplicité : Nous croyons en l'élimination des distractions inutiles pour nous concentrer sur ce qui compte vraiment.",
+    "value2": "Accessibilité : Le contenu doit être accessible à tous, quel que soit l'appareil ou la capacité.",
+    "value3": "Qualité : Nous privilégions le contenu bien recherché et réfléchi plutôt que la quantité."
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Entrez en contact avec nous",
+    "nameLabel": "Nom",
+    "emailLabel": "Email",
+    "subjectLabel": "Sujet",
+    "messageLabel": "Message",
+    "submit": "Envoyer le Message",
+    "submitting": "Envoi en cours...",
+    "successTitle": "Message envoyé !",
+    "successMessage": "Nous vous répondrons bientôt.",
+    "errorTitle": "Erreur",
+    "errorMessage": "Une erreur s'est produite lors de l'envoi de votre message. Veuillez réessayer.",
+    "alternativeTitle": "Autres Moyens de Nous Contacter",
+    "emailTitle": "Email",
+    "socialTitle": "Réseaux Sociaux"
+  },
+  "privacy": {
+    "title": "Politique de Confidentialité",
+    "description": "Comment nous protégeons vos données personnelles",
+    "lastUpdated": "Dernière mise à jour",
+    "date": "1er Mai 2023",
+    "introTitle": "Introduction",
+    "introText": "Chez BlogMinimalista, nous valorisons votre vie privée. Cette Politique de Confidentialité explique comment nous collectons, utilisons et protégeons vos informations personnelles lorsque vous visitez notre site web.",
+    "collectionTitle": "Informations que Nous Collectons",
+    "collectionText": "Nous pouvons collecter les informations suivantes :",
+    "collectionItem1": "Informations personnelles telles que le nom et l'adresse e-mail lorsque vous nous contactez",
+    "collectionItem2": "Données d'utilisation telles que les pages visitées et le temps passé sur notre site web",
+    "collectionItem3": "Données techniques telles que l'adresse IP, le type de navigateur et les informations sur l'appareil",
+    "collectionItem4": "Cookies et technologies de suivi similaires",
+    "cookiesTitle": "Cookies",
+    "cookiesText": "Nous utilisons des cookies pour améliorer votre expérience de navigation, analyser le trafic du site et personnaliser le contenu. Vous pouvez contrôler les cookies via les paramètres de votre navigateur.",
+    "adsenseTitle": "Google AdSense",
+    "adsenseText": "Nous utilisons Google AdSense pour afficher des annonces sur notre site web. Google AdSense utilise des cookies pour diffuser des annonces basées sur vos visites précédentes sur notre site web ou sur d'autres sites web.",
+    "thirdPartyTitle": "Services Tiers",
+    "thirdPartyText": "Nous pouvons utiliser des services tiers tels que Google Analytics pour analyser le trafic du site. Ces services peuvent collecter des informations sur votre utilisation de notre site web.",
+    "rightsTitle": "Vos Droits",
+    "rightsText": "Vous avez le droit d'accéder à vos informations personnelles, de les corriger ou de les supprimer. Vous pouvez nous contacter pour exercer ces droits.",
+    "contactTitle": "Contactez-Nous",
+    "contactText": "Si vous avez des questions concernant notre Politique de Confidentialité, veuillez nous contacter à privacy@blogminimalista.com."
+  },
+  "terms": {
+    "title": "Conditions d'Utilisation",
+    "description": "Règles d'utilisation du site web BlogMinimalista",
+    "lastUpdated": "Dernière mise à jour",
+    "date": "1er Mai 2023",
+    "introTitle": "Introduction",
+    "introText": "En accédant et en utilisant le site web BlogMinimalista, vous acceptez d'être lié par ces Conditions d'Utilisation. Si vous n'êtes pas d'accord avec une partie de ces conditions, veuillez ne pas utiliser notre site web.",
+    "useTitle": "Utilisation de Notre Site Web",
+    "useText": "Vous ne pouvez utiliser notre site web qu'à des fins légales. Vous ne devez pas utiliser notre site web d'une manière qui cause, ou pourrait causer, des dommages au site web ou une altération de la disponibilité ou de l'accessibilité du site web.",
+    "contentTitle": "Contenu",
+    "contentText": "Tout le contenu de notre site web est fourni uniquement à des fins d'information et d'éducation. Nous ne garantissons pas l'exactitude, l'exhaustivité ou l'utilité des informations sur notre site web.",
+    "intellectualTitle": "Propriété Intellectuelle",
+    "intellectualText": "Tout le contenu de notre site web, y compris le texte, les graphiques, les logos et les images, est la propriété de BlogMinimalista et est protégé par les lois sur le droit d'auteur. Vous ne pouvez pas reproduire, distribuer ou utiliser notre contenu sans notre permission.",
+    "linksTitle": "Liens vers d'Autres Sites Web",
+    "linksText": "Notre site web peut contenir des liens vers des sites web tiers. Nous ne sommes pas responsables du contenu ou des pratiques de confidentialité de ces sites web.",
+    "terminationTitle": "Résiliation",
+    "terminationText": "Nous pouvons résilier ou suspendre votre accès à notre site web immédiatement, sans préavis ni responsabilité, pour quelque raison que ce soit, y compris, sans limitation, si vous violez ces Conditions d'Utilisation.",
+    "disclaimerTitle": "Avis de Non-Responsabilité",
+    "disclaimerText": "Notre site web est fourni 'tel quel' et 'selon disponibilité'. Nous ne faisons aucune garantie, expresse ou implicite, concernant le fonctionnement de notre site web ou les informations, le contenu ou les matériaux inclus sur notre site web.",
+    "contactTitle": "Contactez-Nous",
+    "contactText": "Si vous avez des questions concernant nos Conditions d'Utilisation, veuillez nous contacter à terms@blogminimalista.com."
+  },
+  "newsletter": {
+    "title": "Abonnez-vous à notre newsletter",
+    "description": "Recevez les derniers articles directement dans votre boîte de réception",
+    "placeholder": "Votre adresse e-mail",
+    "submit": "S'abonner",
+    "submitting": "Envoi en cours...",
+    "successTitle": "Abonnement réussi !",
+    "successMessage": "Merci de vous être abonné à notre newsletter.",
+    "errorTitle": "Erreur",
+    "errorMessage": "Une erreur s'est produite lors de l'abonnement. Veuillez réessayer.",
+    "privacy": "Nous respectons votre vie privée. Vous pouvez vous désabonner à tout moment."
+  },
+  "footer": {
+    "rights": "Tous droits réservés.",
+    "privacy": "Politique de Confidentialité",
+    "terms": "Conditions d'Utilisation"
+  }
+}

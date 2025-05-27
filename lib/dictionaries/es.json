@@ -1,0 +1,151 @@
+{
+  "site": {
+    "name": "LUZ CRUA",
+    "description": "Un blog estático moderno y responsivo enfocado en la organización de contenido y la experiencia del usuario",
+    "keywords": "blog, minimalista, contenido, experiencia de usuario, organización"
+  },
+  "nav": {
+    "home": "Inicio",
+    "about": "Acerca de",
+    "tags": "Etiquetas",
+    "search": "Buscar",
+    "contact": "Contacto",
+    "posts": "Artículos",
+    "webstories": "WebStories"
+  },
+  "home": {
+    "title": "BlogMinimalista",
+    "subtitle": "Un blog estático moderno y responsivo enfocado en la organización de contenido y la experiencia del usuario",
+    "latestPosts": "Últimas Publicaciones",
+    "featuredPosts": "Publicaciones Destacadas",
+    "featuredPost": "Publicación Destacada",
+    "viewAll": "Ver Todo",
+    "aboutButton": "Sobre el Blog",
+    "exploreButton": "Explorar Etiquetas"
+  },
+  "post": {
+    "readMore": "Leer Más",
+    "minutes": "min de lectura",
+    "readingTime": "Tiempo de lectura",
+    "relatedPosts": "Publicaciones Relacionadas",
+    "share": "Comparte esta publicación",
+    "more": "Más",
+    "copyLink": "Copiar enlace"
+  },
+  "tags": {
+    "title": "Etiqueta",
+    "allTags": "Todas las Etiquetas",
+    "allTagsDescription": "Explora todos los temas de nuestro blog",
+    "description": "Publicaciones etiquetadas con",
+    "post": "publicación",
+    "posts": "publicaciones"
+  },
+  "search": {
+    "title": "Buscar",
+    "description": "Encuentra publicaciones por título, contenido o etiquetas",
+    "placeholder": "Buscar publicaciones...",
+    "button": "Buscar",
+    "loading": "Cargando...",
+    "noResults": "No se encontraron publicaciones que coincidan con tu búsqueda."
+  },
+  "about": {
+    "title": "Acerca de Nosotros",
+    "subtitle": "Nuestra misión y visión",
+    "imageAlt": "Equipo BlogMinimalista",
+    "missionTitle": "Nuestra Misión",
+    "missionText": "Proporcionar una experiencia de lectura limpia y sin distracciones, con enfoque en la calidad del contenido y la accesibilidad.",
+    "visionTitle": "Nuestra Visión",
+    "visionText": "Un mundo donde la información sea fácilmente accesible, bien organizada y presentada de manera amigable para el usuario.",
+    "storyTitle": "Nuestra Historia",
+    "storyText1": "BlogMinimalista fue fundado en 2023 con un objetivo simple: crear una plataforma de blog que priorice el contenido y la experiencia del usuario por encima de todo.",
+    "storyText2": "Nuestro equipo está formado por personas dedicadas que son apasionadas por el diseño limpio, la accesibilidad y el contenido de calidad.",
+    "valuesTitle": "Nuestros Valores",
+    "value1": "Simplicidad: Creemos en eliminar distracciones innecesarias para enfocarnos en lo que realmente importa.",
+    "value2": "Accesibilidad: El contenido debe ser accesible para todos, independientemente del dispositivo o capacidad.",
+    "value3": "Calidad: Priorizamos el contenido bien investigado y reflexivo sobre la cantidad."
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "Ponte en contacto con nosotros",
+    "nameLabel": "Nombre",
+    "emailLabel": "Email",
+    "subjectLabel": "Asunto",
+    "messageLabel": "Mensaje",
+    "submit": "Enviar Mensaje",
+    "submitting": "Enviando...",
+    "successTitle": "¡Mensaje enviado!",
+    "successMessage": "Nos pondremos en contacto contigo pronto.",
+    "errorTitle": "Error",
+    "errorMessage": "Hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo.",
+    "alternativeTitle": "Otras Formas de Contacto",
+    "emailTitle": "Email",
+    "socialTitle": "Redes Sociales"
+  },
+  "privacy": {
+    "title": "Política de Privacidad",
+    "description": "Cómo protegemos tus datos personales",
+    "lastUpdated": "Última actualización",
+    "date": "1 de Mayo de 2023",
+    "introTitle": "Introducción",
+    "introText": "En BlogMinimalista, valoramos tu privacidad. Esta Política de Privacidad explica cómo recopilamos, usamos y protegemos tu información personal cuando visitas nuestro sitio web.",
+    "collectionTitle": "Información que Recopilamos",
+    "collectionText": "Podemos recopilar la siguiente información:",
+    "collectionItem1": "Información personal como nombre y dirección de correo electrónico cuando nos contactas",
+    "collectionItem2": "Datos de uso como páginas visitadas y tiempo pasado en nuestro sitio web",
+    "collectionItem3": "Datos técnicos como dirección IP, tipo de navegador e información del dispositivo",
+    "collectionItem4": "Cookies y tecnologías de seguimiento similares",
+    "cookiesTitle": "Cookies",
+    "cookiesText": "Usamos cookies para mejorar tu experiencia de navegación, analizar el tráfico del sitio y personalizar el contenido. Puedes controlar las cookies a través de la configuración de tu navegador.",
+    "adsenseTitle": "Google AdSense",
+    "adsenseText": "Usamos Google AdSense para mostrar anuncios en nuestro sitio web. Google AdSense utiliza cookies para mostrar anuncios basados en tus visitas anteriores a nuestro sitio web o a otros sitios web.",
+    "thirdPartyTitle": "Servicios de Terceros",
+    "thirdPartyText": "Podemos usar servicios de terceros como Google Analytics para analizar el tráfico del sitio. Estos servicios pueden recopilar información sobre tu uso de nuestro sitio web.",
+    "rightsTitle": "Tus Derechos",
+    "rightsText": "Tienes derecho a acceder, corregir o eliminar tu información personal. Puedes contactarnos para ejercer estos derechos.",
+    "contactTitle": "Contáctanos",
+    "contactText": "Si tienes alguna pregunta sobre nuestra Política de Privacidad, contáctanos en privacy@blogminimalista.com."
+  },
+  "terms": {
+    "title": "Términos de Uso",
+    "description": "Reglas para usar el sitio web BlogMinimalista",
+    "lastUpdated": "Última actualización",
+    "date": "1 de Mayo de 2023",
+    "introTitle": "Introducción",
+    "introText": "Al acceder y usar el sitio web BlogMinimalista, aceptas estar sujeto a estos Términos de Uso. Si no estás de acuerdo con alguna parte de estos términos, por favor no uses nuestro sitio web.",
+    "useTitle": "Uso de Nuestro Sitio Web",
+    "useText": "Puedes usar nuestro sitio web solo para fines legales. No debes usar nuestro sitio web de ninguna manera que cause, o pueda causar, daño al sitio web o deterioro de la disponibilidad o accesibilidad del sitio web.",
+    "contentTitle": "Contenido",
+    "contentText": "Todo el contenido en nuestro sitio web se proporciona solo con fines informativos y educativos. No garantizamos la precisión, integridad o utilidad de cualquier información en nuestro sitio web.",
+    "intellectualTitle": "Propiedad Intelectual",
+    "intellectualText": "Todo el contenido en nuestro sitio web, incluidos textos, gráficos, logotipos e imágenes, es propiedad de BlogMinimalista y está protegido por las leyes de derechos de autor. No puedes reproducir, distribuir o usar nuestro contenido sin nuestro permiso.",
+    "linksTitle": "Enlaces a Otros Sitios Web",
+    "linksText": "Nuestro sitio web puede contener enlaces a sitios web de terceros. No somos responsables del contenido o las prácticas de privacidad de estos sitios web.",
+    "terminationTitle": "Terminación",
+    "terminationText": "Podemos terminar o suspender tu acceso a nuestro sitio web inmediatamente, sin previo aviso o responsabilidad, por cualquier motivo, incluyendo, sin limitación, si incumples estos Términos de Uso.",
+    "disclaimerTitle": "Descargo de Responsabilidad",
+    "disclaimerText": "Nuestro sitio web se proporciona 'tal cual' y 'según disponibilidad'. No hacemos garantías, expresas o implícitas, con respecto al funcionamiento de nuestro sitio web o la información, contenido o materiales incluidos en nuestro sitio web.",
+    "contactTitle": "Contáctanos",
+    "contactText": "Si tienes alguna pregunta sobre nuestros Términos de Uso, contáctanos en terms@blogminimalista.com."
+  },
+  "newsletter": {
+    "title": "Suscríbete a nuestro boletín",
+    "description": "Recibe los últimos artículos directamente en tu bandeja de entrada",
+    "placeholder": "Tu dirección de correo electrónico",
+    "submit": "Suscribirse",
+    "submitting": "Enviando...",
+    "successTitle": "¡Suscripción exitosa!",
+    "successMessage": "Gracias por suscribirte a nuestro boletín.",
+    "errorTitle": "Error",
+    "errorMessage": "Hubo un error al suscribirse. Por favor, inténtalo de nuevo.",
+    "privacy": "Respetamos tu privacidad. Puedes darte de baja en cualquier momento."
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados.",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Uso"
+  },
+  "posts": {
+    "title": "Todos los Artículos",
+    "description": "Explora todos nuestros artículos y enseñanzas"
+  }
+}
