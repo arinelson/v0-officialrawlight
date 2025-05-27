@@ -11,6 +11,26 @@ import "../globals.css"
 
 const inter = Inter({ subsets: ["latin"] })
 
+// Default fallback dictionary
+const defaultDict = {
+  site: { name: "LUZ CRUA", description: "Conexão profunda com Deus" },
+  nav: {
+    home: "Home",
+    posts: "Posts",
+    about: "About",
+    contact: "Contact",
+    webstories: "WebStories",
+    tags: "Tags",
+    search: "Search",
+  },
+  language: { select: "Select Language", autoDetect: "Auto-detect" },
+  footer: {
+    rights: "All rights reserved.",
+    privacy: "Privacy Policy",
+    terms: "Terms of Use",
+  },
+}
+
 export async function generateStaticParams() {
   return [
     { lang: "en" },
@@ -26,13 +46,12 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: { lang: string } }): Promise<Metadata> {
   const { lang } = await params
 
-  let dict
+  let dict = defaultDict
   try {
-    dict = await getDictionary(lang)
+    const loadedDict = await getDictionary(lang)
+    dict = { ...defaultDict, ...loadedDict }
   } catch (error) {
-    dict = {
-      site: { name: "LUZ CRUA", description: "Conexão profunda com Deus" },
-    }
+    console.error("Error loading dictionary for metadata:", error)
   }
 
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://officialrawlight.com"
@@ -63,30 +82,12 @@ export default async function RootLayout({
 }) {
   const { lang } = await params
 
-  let dict
+  let dict = defaultDict
   try {
-    dict = await getDictionary(lang)
+    const loadedDict = await getDictionary(lang)
+    dict = { ...defaultDict, ...loadedDict }
   } catch (error) {
-    console.error("Error loading dictionary:", error)
-    // Fallback dictionary
-    dict = {
-      site: { name: "LUZ CRUA", description: "Conexão profunda com Deus" },
-      nav: {
-        home: "Home",
-        posts: "Posts",
-        about: "About",
-        contact: "Contact",
-        webstories: "WebStories",
-        tags: "Tags",
-        search: "Search",
-      },
-      language: { select: "Select Language", autoDetect: "Auto-detect" },
-      footer: {
-        rights: "All rights reserved.",
-        privacy: "Privacy Policy",
-        terms: "Terms of Use",
-      },
-    }
+    console.error("Error loading dictionary in layout:", error)
   }
 
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://officialrawlight.com"

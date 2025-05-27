@@ -3,8 +3,9 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Globe } from "lucide-react"
+import { Menu, X, Globe, Sun, Moon } from "lucide-react"
 import { useState } from "react"
+import { useTheme } from "next-themes"
 
 interface HeaderProps {
   dict: any
@@ -14,6 +15,7 @@ interface HeaderProps {
 export function Header({ dict, lang }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const pathname = usePathname()
+  const { theme, setTheme } = useTheme()
 
   const languages = [
     { code: "en", name: "English", flag: "🇺🇸" },
@@ -46,6 +48,10 @@ export function Header({ dict, lang }: HeaderProps) {
     window.location.href = "/"
   }
 
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark")
+  }
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 items-center">
@@ -59,6 +65,12 @@ export function Header({ dict, lang }: HeaderProps) {
             </Link>
             <Link href={`/${lang}/posts`} className="transition-colors hover:text-foreground/80 text-foreground/60">
               {dict?.nav?.posts || "Posts"}
+            </Link>
+            <Link
+              href={`/${lang}/webstories`}
+              className="transition-colors hover:text-foreground/80 text-foreground/60"
+            >
+              {dict?.nav?.webstories || "WebStories"}
             </Link>
             <Link href={`/${lang}/about`} className="transition-colors hover:text-foreground/80 text-foreground/60">
               {dict?.nav?.about || "About"}
@@ -98,6 +110,13 @@ export function Header({ dict, lang }: HeaderProps) {
                 {dict?.nav?.posts || "Posts"}
               </Link>
               <Link
+                href={`/${lang}/webstories`}
+                className="transition-colors hover:text-foreground/80 text-foreground/60"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {dict?.nav?.webstories || "WebStories"}
+              </Link>
+              <Link
                 href={`/${lang}/about`}
                 className="transition-colors hover:text-foreground/80 text-foreground/60"
                 onClick={() => setIsMenuOpen(false)}
@@ -116,7 +135,14 @@ export function Header({ dict, lang }: HeaderProps) {
         )}
 
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
-          <div className="w-full flex-1 md:w-auto md:flex-none">
+          <div className="w-full flex-1 md:w-auto md:flex-none flex items-center space-x-2">
+            {/* Theme Toggle */}
+            <Button variant="ghost" size="sm" onClick={toggleTheme} className="h-8 w-8 px-0">
+              <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+              <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+              <span className="sr-only">Toggle theme</span>
+            </Button>
+
             {/* Language Selector */}
             <div className="relative group">
               <Button variant="ghost" size="sm" className="h-8 px-2 text-xs">
