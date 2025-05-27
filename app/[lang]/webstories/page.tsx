@@ -7,17 +7,19 @@ import type { Metadata } from "next"
 import OptimizedImage from "@/components/optimized-image"
 
 export async function generateMetadata({ params }: { params: { lang: string } }): Promise<Metadata> {
-  const dict = await getDictionary(params.lang)
+  const { lang } = await params
+  const dict = await getDictionary(lang)
 
   return {
     title: `${dict.nav.webstories} - ${dict.site.name}`,
-    description: `Explore our ${dict.nav.webstories} in ${params.lang}`,
+    description: `Explore our ${dict.nav.webstories} in ${lang}`,
   }
 }
 
 export default async function WebStoriesPage({ params }: { params: { lang: string } }) {
-  const dict = await getDictionary(params.lang)
-  const allPosts = await getAllPosts(params.lang)
+  const { lang } = await params
+  const dict = await getDictionary(lang)
+  const allPosts = await getAllPosts(lang)
 
   return (
     <div className="space-y-8">
@@ -28,7 +30,7 @@ export default async function WebStoriesPage({ params }: { params: { lang: strin
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
         {allPosts.map((post) => (
-          <Link key={post.slug} href={`/${params.lang}/webstories/${post.slug}`}>
+          <Link key={post.slug} href={`/${lang}/webstories/${post.slug}`}>
             <Card className="overflow-hidden hover:shadow-lg transition-shadow aspect-[9/16] group">
               <div className="relative h-full">
                 <OptimizedImage
@@ -45,7 +47,7 @@ export default async function WebStoriesPage({ params }: { params: { lang: strin
                 {/* Content overlay */}
                 <div className="absolute bottom-0 left-0 right-0 p-3 text-white">
                   <h3 className="font-bold text-sm leading-tight line-clamp-2 mb-1">{post.title}</h3>
-                  <p className="text-xs opacity-75">{formatDate(post.date, params.lang)}</p>
+                  <p className="text-xs opacity-75">{formatDate(post.date, lang)}</p>
                 </div>
               </div>
             </Card>

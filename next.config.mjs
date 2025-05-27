@@ -22,9 +22,6 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   
-  // Configurações de internacionalização - Usando o App Router, removemos a configuração i18n aqui
-  // pois ela é específica para o Pages Router
-  
   // Configurações de segurança
   headers: async () => {
     return [
@@ -50,14 +47,6 @@ const nextConfig = {
 
   // Configuração para tratar corretamente rotas dinâmicas durante a exportação
   trailingSlash: false,
-  
-  // Configuração experimental para melhorar a exportação estática
-  experimental: {
-    // Habilita a geração estática aprimorada
-    appDir: true,
-    // Desabilita a otimização de fontes para evitar problemas durante a exportação
-    optimizeFonts: false,
-  },
 }
 
 export default nextConfig;

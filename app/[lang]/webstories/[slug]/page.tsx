@@ -7,7 +7,8 @@ export async function generateMetadata({
 }: {
   params: { lang: string; slug: string }
 }): Promise<Metadata> {
-  const post = await getPostBySlug(params.lang, params.slug)
+  const { lang, slug } = await params
+  const post = await getPostBySlug(lang, slug)
 
   if (!post) {
     return {}
@@ -22,7 +23,7 @@ export async function generateMetadata({
       title: post.title,
       description: post.excerpt,
       type: "article",
-      url: `${baseUrl}/${params.lang}/webstories/${params.slug}`,
+      url: `${baseUrl}/${lang}/webstories/${slug}`,
       images: [
         {
           url: `/placeholder.svg?height=640&width=360&text=${encodeURIComponent(post.title)}`,
@@ -36,11 +37,6 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
-    },
-    // Web Stories specific metadata
-    other: {
-      "web-stories-replace-head-start": "",
-      "web-stories-replace-head-end": "",
     },
   }
 }
