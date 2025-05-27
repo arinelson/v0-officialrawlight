@@ -1,4 +1,5 @@
-// Client-safe version without server-only
+import "server-only"
+
 const dictionaries = {
   en: () => import("./dictionaries/en.json").then((module) => module.default),
   pt: () => import("./dictionaries/pt.json").then((module) => module.default),
@@ -11,10 +12,17 @@ const dictionaries = {
 
 export const getDictionary = async (locale: string) => {
   try {
-    const dictionary = dictionaries[locale as keyof typeof dictionaries] || dictionaries.en
-    return await dictionary()
+    const dict = dictionaries[locale as keyof typeof dictionaries]
+    if (dict) {
+      return await dict()
+    }
+    // Fallback to English
+    return await dictionaries.en()
   } catch (error) {
-    console.error("Failed to load dictionary:", error)
+    console.error(`Error loading dictionary for locale ${locale}:`, error)
+    // Return English as fallback
     return await dictionaries.en()
   }
 }
+
+export type Dictionary = Awaited<ReturnType<typeof getDictionary>>

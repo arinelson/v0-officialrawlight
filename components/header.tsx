@@ -1,219 +1,162 @@
 "use client"
 
-import { useState } from "react"
 import Link from "next/link"
-import { usePathname, useRouter } from "next/navigation"
-import { Menu, X, Search, Globe } from "lucide-react"
+import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { useTheme } from "next-themes"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { useMobile } from "@/hooks/use-mobile"
-import { Input } from "@/components/ui/input"
+import { Menu, X, Globe } from "lucide-react"
+import { useState } from "react"
 
 interface HeaderProps {
-  lang: string
   dict: any
+  lang: string
 }
 
-export default function Header({ lang, dict }: HeaderProps) {
+export function Header({ dict, lang }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const pathname = usePathname()
-  const router = useRouter()
-  const { theme, setTheme } = useTheme()
-  const isMobile = useMobile()
 
-  // Get the path without the language prefix
-  const pathWithoutLang = pathname.replace(`/${lang}`, "")
-
-  // Navigation items with fallbacks
-  const navItems = [
-    { href: "/", label: dict?.nav?.home || "Home" },
-    { href: "/posts", label: dict?.nav?.posts || "Posts" },
-    { href: "/webstories", label: dict?.nav?.webstories || "WebStories" },
-    { href: "/tags", label: dict?.nav?.tags || "Tags" },
-    { href: "/about", label: dict?.nav?.about || "About" },
-    { href: "/contact", label: dict?.nav?.contact || "Contact" },
-  ]
-
-  // Language options with proper labels and paths
   const languages = [
-    { code: "en", label: "English", path: "en" },
-    { code: "pt", label: "Português", path: "pt" },
-    { code: "es", label: "Español", path: "es" },
-    { code: "de", label: "Deutsch", path: "de" },
-    { code: "fr", label: "Français", path: "fr" },
-    { code: "it", label: "Italiano", path: "it" },
-    { code: "fil", label: "Filipino", path: "fil" },
+    { code: "en", name: "English", flag: "🇺🇸" },
+    { code: "pt", name: "Português", flag: "🇧🇷" },
+    { code: "es", name: "Español", flag: "🇪🇸" },
+    { code: "de", name: "Deutsch", flag: "🇩🇪" },
+    { code: "fr", name: "Français", flag: "🇫🇷" },
+    { code: "it", name: "Italiano", flag: "🇮🇹" },
+    { code: "fil", name: "Filipino", flag: "🇵🇭" },
   ]
 
-  function toggleMenu() {
-    setIsMenuOpen(!isMenuOpen)
+  const currentLang = languages.find((l) => l.code === lang) || languages[0]
+
+  const switchLanguage = (newLang: string) => {
+    // Set manual selection cookie
+    document.cookie = `manual-lang=${newLang}; path=/; max-age=31536000`
+
+    // Get current path without language
+    const pathWithoutLang = pathname.replace(`/${lang}`, "") || "/"
+
+    // Navigate to new language
+    window.location.href = `/${newLang}${pathWithoutLang}`
   }
 
-  function closeMenu() {
-    setIsMenuOpen(false)
-  }
+  const resetToAutoDetect = () => {
+    // Remove manual selection cookie
+    document.cookie = "manual-lang=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT"
 
-  // Handle language change
-  const handleLanguageChange = (targetLang: string, targetPath: string) => {
-    // Set cookie to remember user's manual language selection
-    document.cookie = `preferred-language=${targetLang}; path=/; max-age=${60 * 60 * 24 * 365}` // 1 year
-
-    const newUrl = `/${targetPath}${pathWithoutLang}`
-    router.push(newUrl)
-  }
-
-  const resetLanguageDetection = () => {
-    // Remove the preferred language cookie to allow auto-detection again
-    document.cookie = "preferred-language=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT"
-    window.location.reload()
+    // Redirect to root for auto-detection
+    window.location.href = "/"
   }
 
   return (
-    <header className="w-full border-b bg-background">
-      <div className="container flex h-16 items-center justify-between">
-        <div className="flex items-center gap-2">
-          <Link href={`/${lang}`} className="flex items-center space-x-2">
-            <span className="text-xl font-bold">
-              LUZ <span className="text-blue-500">CRUA</span>
-            </span>
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-14 items-center">
+        <div className="mr-4 hidden md:flex">
+          <Link href={`/${lang}`} className="mr-6 flex items-center space-x-2">
+            <span className="hidden font-bold sm:inline-block">{dict?.site?.name || "LUZ CRUA"}</span>
           </Link>
-        </div>
-
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={`/${lang}${item.href}`}
-              className={`text-sm font-medium transition-colors hover:text-blue-500 ${
-                pathname === `/${lang}${item.href}` ? "text-blue-500" : "text-muted-foreground"
-              }`}
-            >
-              {item.label}
+          <nav className="flex items-center space-x-6 text-sm font-medium">
+            <Link href={`/${lang}`} className="transition-colors hover:text-foreground/80 text-foreground/60">
+              {dict?.nav?.home || "Home"}
             </Link>
-          ))}
-        </nav>
-
-        <div className="flex items-center gap-2">
-          {/* Search */}
-          <form action={`/${lang}/search`} className="hidden md:flex relative">
-            <Input
-              type="search"
-              name="q"
-              placeholder={dict?.search?.placeholder || "Search..."}
-              className="w-[200px] h-9 rounded-md"
-            />
-            <Button type="submit" size="icon" variant="ghost" className="absolute right-0 top-0 h-9 w-9">
-              <Search className="h-4 w-4" />
-              <span className="sr-only">{dict?.search?.button || "Search"}</span>
-            </Button>
-          </form>
-
-          {/* Language Switcher */}
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="outline" size="sm" className="gap-2">
-                <Globe className="h-4 w-4" />
-                <span className="hidden sm:inline">
-                  {languages.find((l) => l.code === lang)?.label || lang.toUpperCase()}
-                </span>
-                <span className="sm:hidden">{lang.toUpperCase()}</span>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-48">
-              <div className="px-2 py-1 text-xs text-muted-foreground border-b mb-1">Choose your language</div>
-              {languages.map((language) => (
-                <DropdownMenuItem
-                  key={language.code}
-                  onClick={() => handleLanguageChange(language.code, language.path)}
-                  className={language.code === lang ? "font-bold bg-muted" : ""}
-                >
-                  <div className="flex items-center justify-between w-full">
-                    <span>{language.label}</span>
-                    {language.code === lang && <span className="text-xs text-blue-500">✓</span>}
-                  </div>
-                </DropdownMenuItem>
-              ))}
-              <DropdownMenuItem onClick={resetLanguageDetection} className="text-xs text-muted-foreground border-t">
-                🌍 Auto-detect location
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-
-          {/* Mobile Menu Button */}
-          <Button variant="ghost" size="icon" className="md:hidden" onClick={toggleMenu}>
-            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            <span className="sr-only">Toggle menu</span>
-          </Button>
+            <Link href={`/${lang}/posts`} className="transition-colors hover:text-foreground/80 text-foreground/60">
+              {dict?.nav?.posts || "Posts"}
+            </Link>
+            <Link href={`/${lang}/about`} className="transition-colors hover:text-foreground/80 text-foreground/60">
+              {dict?.nav?.about || "About"}
+            </Link>
+            <Link href={`/${lang}/contact`} className="transition-colors hover:text-foreground/80 text-foreground/60">
+              {dict?.nav?.contact || "Contact"}
+            </Link>
+          </nav>
         </div>
-      </div>
 
-      {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <div className="md:hidden border-t">
-          <div className="container py-4 space-y-4">
-            {/* Mobile Search */}
-            <form action={`/${lang}/search`} className="flex relative">
-              <Input
-                type="search"
-                name="q"
-                placeholder={dict?.search?.placeholder || "Search..."}
-                className="w-full h-9 rounded-md"
-              />
-              <Button type="submit" size="icon" variant="ghost" className="absolute right-0 top-0 h-9 w-9">
-                <Search className="h-4 w-4" />
-                <span className="sr-only">{dict?.search?.button || "Search"}</span>
-              </Button>
-            </form>
+        {/* Mobile menu button */}
+        <Button
+          variant="ghost"
+          className="mr-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          <span className="sr-only">Toggle Menu</span>
+        </Button>
 
-            {navItems.map((item) => (
+        {/* Mobile menu */}
+        {isMenuOpen && (
+          <div className="absolute top-14 left-0 right-0 bg-background border-b md:hidden">
+            <nav className="flex flex-col space-y-4 p-4">
               <Link
-                key={item.href}
-                href={`/${lang}${item.href}`}
-                className={`block py-2 text-sm font-medium transition-colors hover:text-blue-500 ${
-                  pathname === `/${lang}${item.href}` ? "text-blue-500" : "text-muted-foreground"
-                }`}
-                onClick={closeMenu}
+                href={`/${lang}`}
+                className="transition-colors hover:text-foreground/80 text-foreground/60"
+                onClick={() => setIsMenuOpen(false)}
               >
-                {item.label}
+                {dict?.nav?.home || "Home"}
               </Link>
-            ))}
-
-            {/* Mobile Language Switcher */}
-            <div className="border-t pt-4">
-              <p className="text-sm font-medium mb-2">Languages:</p>
-              <div className="grid grid-cols-2 gap-2">
-                {languages.map((language) => (
-                  <Button
-                    key={language.code}
-                    variant={language.code === lang ? "default" : "outline"}
-                    size="sm"
-                    onClick={() => {
-                      handleLanguageChange(language.code, language.path)
-                      closeMenu()
-                    }}
-                    className="justify-start"
-                  >
-                    {language.label}
-                  </Button>
-                ))}
-              </div>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => {
-                  resetLanguageDetection()
-                  closeMenu()
-                }}
-                className="w-full mt-2 text-xs text-muted-foreground"
+              <Link
+                href={`/${lang}/posts`}
+                className="transition-colors hover:text-foreground/80 text-foreground/60"
+                onClick={() => setIsMenuOpen(false)}
               >
-                🌍 Auto-detect location
+                {dict?.nav?.posts || "Posts"}
+              </Link>
+              <Link
+                href={`/${lang}/about`}
+                className="transition-colors hover:text-foreground/80 text-foreground/60"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {dict?.nav?.about || "About"}
+              </Link>
+              <Link
+                href={`/${lang}/contact`}
+                className="transition-colors hover:text-foreground/80 text-foreground/60"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {dict?.nav?.contact || "Contact"}
+              </Link>
+            </nav>
+          </div>
+        )}
+
+        <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
+          <div className="w-full flex-1 md:w-auto md:flex-none">
+            {/* Language Selector */}
+            <div className="relative group">
+              <Button variant="ghost" size="sm" className="h-8 px-2 text-xs">
+                <Globe className="h-4 w-4 mr-1" />
+                <span className="mr-1">{currentLang.flag}</span>
+                <span className="hidden sm:inline">{currentLang.name}</span>
+                <span className="sm:hidden">{currentLang.code.toUpperCase()}</span>
               </Button>
+
+              <div className="absolute right-0 top-full mt-1 w-48 bg-background border rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <div className="p-2">
+                  <div className="text-xs text-muted-foreground mb-2 px-2">
+                    {dict?.language?.select || "Select Language"}
+                  </div>
+                  {languages.map((language) => (
+                    <button
+                      key={language.code}
+                      onClick={() => switchLanguage(language.code)}
+                      className={`w-full text-left px-2 py-1 text-sm rounded hover:bg-accent flex items-center space-x-2 ${
+                        language.code === lang ? "bg-accent" : ""
+                      }`}
+                    >
+                      <span>{language.flag}</span>
+                      <span>{language.name}</span>
+                      {language.code === lang && <span className="ml-auto text-xs text-muted-foreground">✓</span>}
+                    </button>
+                  ))}
+                  <hr className="my-2" />
+                  <button
+                    onClick={resetToAutoDetect}
+                    className="w-full text-left px-2 py-1 text-xs text-muted-foreground hover:bg-accent rounded"
+                  >
+                    🌍 {dict?.language?.autoDetect || "Auto-detect"}
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      )}
+      </div>
     </header>
   )
 }
