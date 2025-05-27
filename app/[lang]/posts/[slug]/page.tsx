@@ -109,7 +109,7 @@ export default async function PostPage({ params }: { params: { lang: string; slu
       {/* Featured image with proper alt text */}
       <div className="relative w-full h-[300px] mb-8 rounded-lg overflow-hidden">
         <Image
-          src={`/placeholder.svg?height=600&width=1200&text=${encodeURIComponent(post.title)}`}
+          src={`/aculpadeabraao.png?height=600&width=1200&text=${encodeURIComponent(post.title)}`}
           alt={post.title}
           fill
           className="object-cover"
